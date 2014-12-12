@@ -1,0 +1,72 @@
+OpenPGP Certification Policy
+--- Version 0.1.0 (Released 2014-12-12)
+
+Signatures which refer to this policy are made observing the
+conditions listed in this document.
+
+In the following, a new, to-be-certified identity/key binding is simply
+referred to as "new binding". It binds a "claimed identity" package to
+an "associated key".
+
+The conditions depend on the specified signature type and are:
+(In the order of increasing verification intensity.)
+
+===
+1. Persona Certification (type: 0x11, GnuPG¹: 1)
+===
+a) the claimed identity is obviously not a real world identity
+   but a persona or pseudonym AND
+b) the certifier received a matching fingerprint of the associated key over a
+   trustworthy communication channel (e.g. a OTR-protected XMPP session)
+   through which the certifier already re-identified the person which the
+   certifier got to know by that persona.
+
+
+===
+2. Casual Certification (type 0x12, GnuPG¹: 2)
+===
+Alternative 1: face-to-face contact
+a) The person showed an official document² (e.g. passport) to the certifier
+   which included a photo that depicted the presenter,
+b) the name in the presented document corresponded to the name in the
+   claimed identity AND
+c) the person showed me a fingerprint of the associated key that
+   matches the fingerprint of my copy of the associated key.
+
+Alternative 2: re-certification of new keys
+a) The certifier previously certified a binding under the conditions of this
+   type or type 3 which claimed exactly the same identity,
+b) the new binding is certified by the key associated to that
+   previously certified binding AND
+c) that old key has neither expired nor has it been publicly revoked
+   before.
+
+
+===
+3. Positive certification (type 0x13, GnuPG¹: 3)
+===
+a) Having face-to-face contact, the person showed me two official
+   document² (e.g. passport, driver licence) whereof at least one
+   included a photo that depicted the presenter,
+b) the name in the presented documents corresponded to the name in the
+   claimed identity AND
+c) the person showed me a fingerprint of the associated key that
+   matches the fingerprint of my copy of the associated key.
+
+
+===
+General conditions
+===
+1) The certifier didn't publish the certification itself, but sent it to the
+   address given in the claimed identity after it has been encrypted with the
+   associated public key.
+
+
+---
+¹ GnuPG can denote the signature types with this numbers in the
+  output of the --list-signs option.
+² Persons who are known to the certifier by the claimed name for more than 10
+  years and with whom the certifier has frequent personal contact may not have
+  shown any documents for it would be somehow ridiculous, wouldn't it?
+
+See RFC 4880, Sections 5.2.1 and 5.2.3.20 for further details about
