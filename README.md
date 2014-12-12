@@ -10,7 +10,7 @@ This repository publishes an exemplary certification policy document.
 In order to add policy URI packages to key signatures made with GnuPG, one has
 to add following line to the `gpg.conf`:
 
-    cert-policy-url "https://github.com/cburkert/pgp-cert-policy/policy.txt"
+    cert-policy-url "https://raw.githubusercontent.com/cburkert/pgp-cert-policy/v0.1.0/policy.txt"
 
 In order to show policy URIs when listing key signatures, add the this to the
 config:
